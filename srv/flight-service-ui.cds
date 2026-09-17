@@ -39,18 +39,35 @@ annotate FlightService.Flights with @(
     Title: { Value: connectionID },
     Description: { Value: carrierID }
   },
-  UI.Facets: [{
-    $Type: 'UI.ReferenceFacet',
-    Label: 'Flight Details',
-    Target: '@UI.FieldGroup#GeneralData'
-  }],
+  UI.Facets: [
+    {
+      $Type : 'UI.CollectionFacet',
+      ID    : 'FlightDetails',
+      Label : 'Flight Details',
+      Facets: [{
+        $Type : 'UI.ReferenceFacet',
+        ID    : 'GeneralData',
+        Label : 'General Data',
+        Target: '@UI.FieldGroup#GeneralData'
+      }]
+    },
+    {
+      $Type : 'UI.ReferenceFacet',
+      ID    : 'Bookings',
+      Label : 'Bookings',
+      Target: 'bookings/@UI.LineItem'
+    }
+  ],
+
   UI.FieldGroup #GeneralData: {
     Data: [
       { Value: flightDate },
       { Value: price, ![@Common.FieldControl]: priceFieldControl },
       { Value: currency_code },
       { Value: bookedSeats },
-      { Value: plannedSeats }
+      { Value: plannedSeats },
+      { Value: seatsAvailable }
+
     ]
   }
 );
@@ -79,3 +96,15 @@ annotate FlightService.Flights with {
   priceFieldControl @UI.Hidden: true;
   isFullyBooked     @UI.Hidden: true;
 };
+
+annotate FlightService.Bookings with @(
+  UI.LineItem: [
+    { Value: bookingID },
+    { Value: customerID },
+    { Value: passengerName },
+    { Value: bookingClass },
+    { Value: foreignCurrencyAmount, Label: 'Amount' },
+    { Value: cancelled }
+  ]
+);
+

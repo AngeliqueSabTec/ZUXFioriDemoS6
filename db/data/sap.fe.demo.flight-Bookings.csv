@@ -1,0 +1,4 @@
+ID,flight_ID,bookingID,customerID,custType,smoker,bookingClass,foreignCurrencyAmount,foreignCurrencyKey,localCurrencyAmount,localCurrencyKey,orderDate,passengerName,passengerForm,passengerBirthDate,cancelled
+0b2c3d4e-0001-0000-0000-000000000001,0a1b2c3d-0001-0000-0000-000000000001,00000001,100001,1,false,Y,450.00,USD,450.00,USD,2026-07-01,A. Sample,Mr,1985-04-12,false
+0b2c3d4e-0002-0000-0000-000000000002,0a1b2c3d-0001-0000-0000-000000000001,00000002,100002,1,false,C,1200.00,USD,1200.00,USD,2026-07-03,B. Traveler,Ms,1990-09-23,false
+0b2c3d4e-0003-0000-0000-000000000003,0a1b2c3d-0003-0000-0000-000000000003,00000003,100003,2,true,C,890.00,USD,890.00,USD,2026-06-20,C. Flyer,Mrs,1978-11-02,false

@@ -7,6 +7,8 @@ service FlightService {
     action cancelFlight() returns Flights;   // BOUND
     
   };
+    entity Bookings as projection on db.Bookings;   // NEW — explicit exposure
+
   action openBookingWindow(forDate: Date) returns String;  // UNBOUND
 }
 
