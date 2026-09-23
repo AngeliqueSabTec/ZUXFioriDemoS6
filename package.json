@@ -2,14 +2,14 @@
   "name": "flight-cap-demo",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9"
+    "@sap/cds": "^9",
+    "@cap-js/sqlite": "^2.4.3"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2.4",
     "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.17.0",
-    "rimraf": "^5.0.5",
-    "mbt": "^1.2.49"
+    "mbt": "^1.2.49",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "cds-serve",
@@ -24,5 +24,23 @@
   ],
   "sapux": [
     "app/flightsop"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": "dummy",
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
+      }
+    },
+    "features": {
+      "[production]": {
+        "in_memory_db": true
+      }
+    }
+  }
 }
